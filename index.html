@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Acceso</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4a6fa5;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #2e5077;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e3955;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3a5b7d;
+        }
+        .error {
+            color: #ff4d4d;
+            font-size: 14px;
+        }
+        .success {
+            color: #4caf50;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Portal Comisaría 564</h1>
+        <p>Usuario: h.abad</p>
+        <input type="password" id="password" placeholder="Introduzca su contraseña">
+        <button onclick="validatePassword()">Enviar</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // JavaScript
+        const correctPassword = "123456789"; // Contraseña correcta
+
+        function validatePassword() {
+            const input = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (input === correctPassword) {
+                message.textContent = "Acceso concedido. Bienvenido.";
+                message.className = "success";
+                // Aquí puedes redirigir a otra página si es necesario:
+                // window.location.href = "pagina_secreta.html";
+            } else {
+                message.textContent = "Acceso denegado. Contraseña incorrecta.";
+                message.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>
